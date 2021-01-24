@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+    <h1>Pokédex</h1>
+
+    <a href="./form">
+        <button>
+            Ajouter
+        </button>
+    </a>
+
+    <br>
+    <br>
+
+    <table>
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nom</td>
+            <td>Types</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pokemon in pokemons %}
+        <tr>
+            <td>
+                {{ pokemon.id }}
+            </td>
+            <td>
+                <a href="./pokemons/{{ pokemon.id }}">
+                    {{ pokemon.name }}
+                </a>
+            </td>
+            <td>
+                {{ pokemon.types }}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+{% endblock %}

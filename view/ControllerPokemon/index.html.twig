@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pokemon.name }} information{% endblock %}
+
+{% block body %}
+    <h1>{{ pokemon.name }}</h1>
+
+    <span>Numéro : {{ pokemon.id }}</span>
+
+    <p>Une description : ?</p>
+
+    <a href="../homepage">Retour à la liste</a>
+
+    <br>
+    <br>
+{% endblock %}

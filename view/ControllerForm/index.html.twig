@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un nouveau Pokémon{% endblock %}
+
+{% block body %}
+    <h2>Ajouter un pokemon</h2>
+
+    <h3> Message : <b style="color: orangered">{{ msg }}</b></h3>
+
+    <hr>
+    <h3>Formulaire en Twig / HTML</h3>
+    <form method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" value="{{ name }}" required>
+        <br><br>
+        <label for="type">Type</label>
+        <select name="type[]" multiple>
+            {% for type in types %}
+            <option value="{{ type.id }}">{{ type.label }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="checkbox" name="page" value="{{ page }}" required>
+
+        <input type="submit" name="submit">
+    </form>
+    <hr>
+    {% autoescape "html" %}
+        {#{{ form }}#}
+        {{ form|raw }}
+    {% endautoescape %}
+
+    <br>
+
+    <a href="./homepage">Retour à la liste</a>
+
+    <br>
+    <br>
+{% endblock %}
